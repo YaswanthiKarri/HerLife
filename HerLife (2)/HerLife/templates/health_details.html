@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HerLife - Health Analysis</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🌸 HerLife</h1>
+
+    <p>
+        Women's Health & Wellness Analysis
+    </p>
+
+</header>
+
+
+<main class="dashboard">
+
+    <a href="/" class="back-button">
+        ← Back to Home
+    </a>
+
+
+    <div class="period-section">
+
+        <h2>👩 Enter Your Health Details</h2>
+
+        <p>
+            Enter your details once.
+            HerLife will use them across the health modules.
+        </p>
+
+
+        <form action="/analyze" method="POST">
+
+
+            <!-- PERSONAL DETAILS -->
+
+            <h2>👩 Personal Details</h2>
+
+
+            <label>Age</label>
+
+            <input type="number"
+                   name="age"
+                   min="10"
+                   max="60"
+                   required>
+
+
+            <label>BMI</label>
+
+            <input type="number"
+                   name="bmi"
+                   step="0.1"
+                   min="10"
+                   max="60"
+                   placeholder="Example: 22.5"
+                   required>
+
+
+            <!-- PERIOD DETAILS -->
+
+            <h2>🩸 Menstrual Details</h2>
+
+
+            <label>Last Period Date</label>
+
+            <input type="date"
+                   name="last_period"
+                   required>
+
+
+            <label>Average Cycle Length</label>
+
+            <input type="number"
+                   name="cycle_length_days"
+                   min="21"
+                   max="45"
+                   value="28"
+                   required>
+
+
+            <label>Period Duration</label>
+
+            <input type="number"
+                   name="period_duration_days"
+                   min="1"
+                   max="10"
+                   value="5"
+                   required>
+
+
+            <label>Are your periods irregular?</label>
+
+            <select name="irregular_periods">
+
+                <option value="0">
+                    No
+                </option>
+
+                <option value="1">
+                    Yes
+                </option>
+
+            </select>
+
+
+            <!-- SYMPTOMS -->
+
+            <h2>🌸 Symptoms</h2>
+
+
+            <label>Acne</label>
+
+            <select name="acne">
+
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+
+            </select>
+
+
+            <label>Excess Hair Growth</label>
+
+            <select name="excess_hair_growth">
+
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+
+            </select>
+
+
+            <label>Hair Thinning</label>
+
+            <select name="hair_thinning">
+
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+
+            </select>
+
+
+            <label>Recent Weight Gain</label>
+
+            <select name="weight_gain">
+
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+
+            </select>
+
+
+            <label>Dark Skin Patches</label>
+
+            <select name="dark_skin_patches">
+
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+
+            </select>
+
+
+            <label>Pelvic Pain</label>
+
+            <select name="pelvic_pain">
+
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+
+            </select>
+
+
+            <label>Fatigue</label>
+
+            <select name="fatigue">
+
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+
+            </select>
+
+
+            <!-- FAMILY HISTORY -->
+
+            <h2>👨‍👩‍👧 Family History</h2>
+
+
+            <label>
+                Family History of PCOS
+            </label>
+
+            <select name="family_history_pcos">
+
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+
+            </select>
+
+
+            <!-- LIFESTYLE -->
+
+            <h2>🏃 Lifestyle</h2>
+
+
+            <label>
+                Physical Activity (days/week)
+            </label>
+
+            <input type="number"
+                   name="physical_activity_days_per_week"
+                   min="0"
+                   max="7"
+                   required>
+
+
+            <label>
+                Average Sleep (hours)
+            </label>
+
+            <input type="number"
+                   name="sleep_hours"
+                   step="0.1"
+                   min="0"
+                   max="24"
+                   required>
+
+
+            <label>
+                Stress Level
+            </label>
+
+            <select name="stress_level_1_to_5">
+
+                <option value="1">
+                    1 - Very Low
+                </option>
+
+                <option value="2">
+                    2 - Low
+                </option>
+
+                <option value="3">
+                    3 - Moderate
+                </option>
+
+                <option value="4">
+                    4 - High
+                </option>
+
+                <option value="5">
+                    5 - Very High
+                </option>
+
+            </select>
+
+
+            <label>
+                Water Intake (glasses/day)
+            </label>
+
+            <input type="number"
+                   name="water_glasses_per_day"
+                   min="0"
+                   max="30"
+                   required>
+
+
+            <br><br>
+
+
+            <button type="submit"
+                    class="calculate-btn">
+
+                🔍 Analyze My Health
+
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 HerLife | Women's Health & Wellness
+    </p>
+
+</footer>
+
+</body>
+
+</html>

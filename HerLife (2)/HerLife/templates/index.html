@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HerLife - Women's Health</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🌸 <span>HerLife</span>
+        </div>
+
+        <div class="nav-right">
+
+            {% if username %}
+                <span class="welcome">
+                    Hi, {{ username }} 👋
+                </span>
+            {% endif %}
+
+            <a href="{{ url_for('logout') }}"
+               class="logout-btn">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>
+                Your Health,
+                <span>Your Priority.</span>
+            </h1>
+
+            <p>
+                A simple and supportive women's health
+                companion for tracking, assessment and
+                healthy lifestyle information.
+            </p>
+
+            <a href="{{ url_for('health_details') }}"
+               class="start-btn">
+                Get Started →
+            </a>
+
+        </div>
+
+        <div class="hero-icon">
+            🌷
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <h2>HerLife Features</h2>
+
+        <p class="section-text">
+            Everything you need in one place
+        </p>
+
+
+        <div class="card-container">
+
+
+            <!-- PERIOD -->
+
+            <a href="{{ url_for('period') }}"
+               class="feature-card">
+
+                <div class="card-icon">
+                    🩸
+                </div>
+
+                <h3>Period Tracker</h3>
+
+                <p>
+                    Track your menstrual cycle,
+                    period history and next expected period.
+                </p>
+
+                <span class="card-link">
+                    Open Tracker →
+                </span>
+
+            </a>
+
+
+            <!-- PCOD -->
+
+            <a href="{{ url_for('pcod') }}"
+               class="feature-card">
+
+                <div class="card-icon">
+                    🌸
+                </div>
+
+                <h3>PCOD Assessment</h3>
+
+                <p>
+                    Check your PCOD risk using
+                    your health information.
+                </p>
+
+                <span class="card-link">
+                    Check PCOD →
+                </span>
+
+            </a>
+
+
+            <!-- PCOS -->
+
+            <a href="{{ url_for('pcos') }}"
+               class="feature-card">
+
+                <div class="card-icon">
+                    🌷
+                </div>
+
+                <h3>PCOS Assessment</h3>
+
+                <p>
+                    Get a risk assessment based
+                    on your health details.
+                </p>
+
+                <span class="card-link">
+                    Check PCOS →
+                </span>
+
+            </a>
+
+
+            <!-- NUTRITION -->
+
+            <a href="{{ url_for('nutrition') }}"
+               class="feature-card">
+
+                <div class="card-icon">
+                    🥗
+                </div>
+
+                <h3>Nutrition</h3>
+
+                <p>
+                    Explore simple nutrition and
+                    healthy eating information.
+                </p>
+
+                <span class="card-link">
+                    View Nutrition →
+                </span>
+
+            </a>
+
+
+            <!-- EXERCISE -->
+
+            <a href="{{ url_for('exercise') }}"
+               class="feature-card">
+
+                <div class="card-icon">
+                    🧘‍♀️
+                </div>
+
+                <h3>Exercise</h3>
+
+                <p>
+                    Discover simple exercises and
+                    healthy lifestyle activities.
+                </p>
+
+                <span class="card-link">
+                    View Exercises →
+                </span>
+
+            </a>
+
+
+            <!-- HELP -->
+
+            <a href="{{ url_for('help') }}"
+               class="feature-card">
+
+                <div class="card-icon">
+                    🆘
+                </div>
+
+                <h3>Emergency & Help</h3>
+
+                <p>
+                    Find useful emergency information
+                    and important health guidance.
+                </p>
+
+                <span class="card-link">
+                    Get Help →
+                </span>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>🌸 HerLife</h3>
+
+        <p>
+            Your Women's Health Companion
+        </p>
+
+        <small>
+            HerLife provides general health information
+            and is not a substitute for professional medical advice.
+        </small>
+
+    </footer>
+
+
+</body>
+</html>

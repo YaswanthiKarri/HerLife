@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Emergency & Help - HerLife</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff5fa;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #d63384;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            color: #d63384;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #d63384;
+            margin-top: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        .contact-box {
+            border: 1px solid #f0c4d9;
+            border-radius: 15px;
+            padding: 18px;
+            margin: 15px 0;
+            background: #fff9fc;
+        }
+
+        .contact-title {
+            color: #d63384;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #d63384;
+        }
+
+        .save-button {
+            width: 100%;
+            border: none;
+            background: #d63384;
+            color: white;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .save-button:hover {
+            background: #c22575;
+        }
+
+        .saved-contact-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            margin: 12px 0;
+            background: #fff5fa;
+            border: 1px solid #f1c6da;
+            border-radius: 14px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-name {
+            font-weight: bold;
+            color: #444;
+            font-size: 16px;
+        }
+
+        .contact-phone {
+            margin-top: 7px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .call-contact-button {
+            display: inline-block;
+            background: #d63384;
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .call-contact-button:hover {
+            background: #c22575;
+        }
+
+        .no-contacts {
+            text-align: center;
+            color: #777;
+            padding: 15px;
+        }
+
+        .emergency-text {
+            text-align: center;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .sos-button {
+            display: block;
+            width: 100%;
+            border: none;
+            background: #dc3545;
+            color: white;
+            padding: 17px;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .sos-button:hover {
+            background: #c82333;
+        }
+
+        .call-emergency-button {
+            display: block;
+            text-align: center;
+            background: #20a085;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 14px;
+            font-size: 17px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .call-emergency-button:hover {
+            background: #168b73;
+        }
+
+        #sos-status {
+            text-align: center;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        .warning {
+            color: #8a3b58;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 94%;
+                margin: 20px auto;
+            }
+
+            .saved-contact-card {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .call-contact-button {
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <!-- BACK TO HOME -->
+
+    <a href="{{ url_for('home') }}" class="back">
+        ← Back to Home
+    </a>
+
+
+    <!-- MAIN CARD -->
+
+    <div class="card">
+
+        <h1>🚨 Emergency & Help</h1>
+
+        <p class="subtitle">
+            Save up to 5 trusted emergency contacts.
+            They will remain saved to your HerLife account.
+        </p>
+
+
+        <!-- SAVED CONTACTS -->
+
+        <div class="saved-contacts">
+
+            <h2>🚨 Saved Emergency Contacts</h2>
+
+            {% if contacts %}
+
+                {% for contact in contacts %}
+
+                    <div class="saved-contact-card">
+
+                        <div class="contact-info">
+
+                            <div class="contact-name">
+                                👤 {{ contact[1] }}
+                            </div>
+
+                            <div class="contact-phone">
+                                {{ contact[2] }}
+                            </div>
+
+                        </div>
+
+
+                        <!-- CALL CONTACT -->
+
+                        <a
+                            href="tel:{{ contact[2] }}"
+                            class="call-contact-button"
+                        >
+                            📞 Call {{ contact[1]}}
+                        </a>
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p class="no-contacts">
+                    No emergency contacts saved yet.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+
+    <!-- EDIT / SAVE CONTACTS -->
+
+    <div class="card">
+
+        <h2>📱 Emergency Contact Setup</h2>
+
+        <p class="subtitle">
+            Add or update your 5 trusted emergency contacts.
+        </p>
+
+
+        <form
+            action="{{ url_for('save_emergency_contacts') }}"
+            method="POST"
+        >
+
+
+            <!-- 5 CONTACT BOXES -->
+
+            {% for i in range(5) %}
+
+
+                <div class="contact-box">
+
+                    <div class="contact-title">
+                        Emergency Contact {{ i + 1 }}
+                    </div>
+
+
+                    <label>
+                        Contact Name
+                    </label>
+
+
+                    <input
+                        type="text"
+                        name="contact_name"
+                        placeholder="Example: Mother"
+                        value="{{ contacts[i][1] if i < contacts|length else '' }}"
+                        required
+                    >
+
+
+                    <label>
+                        Phone Number
+                    </label>
+
+
+                    <input
+                        type="tel"
+                        name="phone"
+                        placeholder="Enter trusted contact number"
+                        value="{{ contacts[i][2] if i < contacts|length else '' }}"
+                        required
+                    >
+
+                </div>
+
+
+            {% endfor %}
+
+
+            <!-- SAVE -->
+
+            <button
+                type="submit"
+                class="save-button"
+            >
+                💾 Save Emergency Contacts
+            </button>
+
+
+        </form>
+
+    </div>
+
+
+
+    <!-- EMERGENCY ACTIONS -->
+
+    <div class="card">
+
+        <h2>🚨 Emergency Actions</h2>
+
+        <p class="emergency-text">
+            In a serious emergency, contact emergency services immediately.
+        </p>
+
+
+        <!-- SOS -->
+
+        <button
+            type="button"
+            class="sos-button"
+            onclick="getSOSLocation()"
+        >
+            🚨 SOS — Get My Location
+        </button>
+
+
+        <p id="sos-status"></p>
+
+
+        <!-- INDIA EMERGENCY NUMBER -->
+
+        <a
+            href="tel:112"
+            class="call-emergency-button"
+        >
+            📞 Call Emergency Services — 112
+        </a>
+
+
+        <p class="warning">
+            Important: Do not rely only on this website during a
+            life-threatening emergency.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- GPS + SOS SCRIPT -->
+
+<script>
+
+function getSOSLocation() {
+
+    const status =
+        document.getElementById("sos-status");
+
+    status.innerHTML =
+        "📍 Getting your current location...";
+
+
+    if (!navigator.geolocation) {
+
+        status.innerHTML =
+            "❌ Your browser does not support location.";
+
+        return;
+    }
+
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position) {
+
+            const latitude =
+                position.coords.latitude;
+
+            const longitude =
+                position.coords.longitude;
+
+
+            status.innerHTML =
+                "✅ Location found. Sending SOS...";
+
+
+            fetch("/sos-location", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    latitude: latitude,
+                    longitude: longitude
+
+                })
+
+            })
+
+
+            .then(response =>
+                response.json()
+            )
+
+
+            .then(data => {
+
+                if (data.success) {
+
+                    status.innerHTML =
+                        "🚨 SOS location processed successfully!<br>" +
+                        "📍 SMS sent to " +
+                        data.sent_count +
+                        " emergency contact(s).<br><br>" +
+
+                        '<a href="' +
+                        data.maps_url +
+                        '" target="_blank">' +
+                        "🗺️ Open My Location" +
+                        "</a>";
+
+                }
+
+                else {
+
+                    status.innerHTML =
+                        "❌ " + data.message;
+
+                }
+
+            })
+
+
+            .catch(error => {
+
+                status.innerHTML =
+                    "❌ Could not send location to HerLife.";
+
+                console.error(error);
+
+            });
+
+        },
+
+
+        function(error) {
+
+            if (error.code === 1) {
+
+                status.innerHTML =
+                    "❌ Location permission was denied. " +
+                    "Please allow location access.";
+
+            }
+
+            else if (error.code === 2) {
+
+                status.innerHTML =
+                    "❌ Your location could not be determined.";
+
+            }
+
+            else if (error.code === 3) {
+
+                status.innerHTML =
+                    "❌ Location request timed out. Please try again.";
+
+            }
+
+            else {
+
+                status.innerHTML =
+                    "❌ Unable to get your location.";
+
+            }
+
+        },
+
+
+        {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+        }
+
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

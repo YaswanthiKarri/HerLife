@@ -1,0 +1,1212 @@
+/* =========================================================
+   HERLIFE - COMPLETE STYLE SHEET
+   Login + Register + Dashboard + Health Details
+   ========================================================= */
+
+
+/* =========================================================
+   GENERAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #fff7fa;
+
+    color: #444;
+}
+
+
+/* =========================================================
+   LOGIN / REGISTER PAGE
+   ========================================================= */
+
+.auth-body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    background: #fff4f8;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.auth-page {
+    width: 900px;
+
+    min-height: 560px;
+
+    background: white;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    box-shadow:
+        0 15px 45px rgba(180, 70, 110, 0.15);
+}
+
+
+/* =========================================================
+   LOGIN LEFT SIDE
+   ========================================================= */
+
+.auth-welcome {
+    background: linear-gradient(
+        145deg,
+        #d63384,
+        #e86b9d
+    );
+
+    color: white;
+
+    padding: 55px 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.auth-logo {
+    font-size: 28px;
+
+    font-weight: bold;
+
+    margin-bottom: 70px;
+}
+
+
+.auth-welcome h1 {
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+
+.auth-welcome p {
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    opacity: 0.95;
+
+    margin-bottom: 30px;
+}
+
+
+.health-points {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+
+.health-points div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    font-size: 15px;
+}
+
+
+.health-points div:first-letter {
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   LOGIN CARD
+   ========================================================= */
+
+.login-card {
+    padding: 55px 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.login-icon {
+    width: 58px;
+
+    height: 58px;
+
+    background: #fff0f5;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 28px;
+
+    margin-bottom: 18px;
+}
+
+
+.login-card h2 {
+    font-size: 30px;
+
+    color: #333;
+
+    margin-bottom: 8px;
+}
+
+
+.login-subtitle {
+    color: #888;
+
+    margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   LOGIN INPUTS
+   ========================================================= */
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+
+.input-group label {
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: #555;
+
+    margin-bottom: 8px;
+}
+
+
+.input-group input {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #ead6df;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+.input-group input:focus {
+    border-color: #d63384;
+
+    box-shadow:
+        0 0 0 3px rgba(214, 51, 132, 0.08);
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+   ========================================================= */
+
+.login-button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #d63384;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    margin-top: 5px;
+
+    transition: 0.3s;
+}
+
+
+.login-button:hover {
+    background: #b82b70;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   REGISTER LINK
+   ========================================================= */
+
+.register-text {
+    text-align: center;
+
+    color: #777;
+
+    font-size: 14px;
+
+    margin-top: 25px;
+}
+
+
+.register-text a {
+    color: #d63384;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    margin-left: 4px;
+}
+
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* If login.html uses register-link instead */
+
+.register-link {
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+.register-link a {
+    color: #d63384;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+   ========================================================= */
+
+.error-message {
+    background: #fff0f0;
+
+    color: #c0392b;
+
+    border: 1px solid #f3cccc;
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   SECURITY NOTE
+   ========================================================= */
+
+.login-note {
+    text-align: center;
+
+    color: #aaa;
+
+    font-size: 11px;
+
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   MAIN HERLIFE NAVBAR
+   ========================================================= */
+
+.navbar {
+    background: linear-gradient(
+        135deg,
+        #d63384,
+        #e86b9d
+    );
+
+    min-height: 70px;
+
+    padding: 0 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    color: white;
+
+    box-shadow:
+        0 4px 15px rgba(214, 51, 132, 0.15);
+}
+
+
+.logo {
+    font-size: 24px;
+
+    font-weight: bold;
+}
+
+
+.logo span {
+    margin-left: 5px;
+}
+
+
+.nav-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.welcome {
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+
+.logout-btn {
+    color: white;
+
+    text-decoration: none;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    padding: 9px 18px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+
+.logout-btn:hover {
+    background: white;
+
+    color: #d63384;
+}
+
+
+/* =========================================================
+   HOME HERO
+   ========================================================= */
+
+.hero {
+    width: 86%;
+
+    max-width: 1150px;
+
+    margin: 45px auto 35px;
+
+    padding: 45px 55px;
+
+    background: white;
+
+    border-radius: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border: 1px solid #f2dce5;
+
+    box-shadow:
+        0 10px 30px rgba(180, 70, 110, 0.08);
+}
+
+
+.hero-text {
+    max-width: 700px;
+}
+
+
+.hero h1 {
+    margin: 0 0 15px;
+
+    font-size: 40px;
+
+    line-height: 1.2;
+
+    color: #333;
+}
+
+
+.hero h1 span {
+    color: #d63384;
+}
+
+
+.hero p {
+    color: #777;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+
+.start-btn {
+    display: inline-block;
+
+    background: #d63384;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 13px 24px;
+
+    border-radius: 12px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+.start-btn:hover {
+    background: #b82b70;
+
+    transform: translateY(-2px);
+}
+
+
+.hero-icon {
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 50%;
+
+    background: #fff0f5;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 55px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.features {
+    width: 86%;
+
+    max-width: 1150px;
+
+    margin: 0 auto 60px;
+
+    text-align: center;
+}
+
+
+.features h2 {
+    color: #c2185b;
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+
+.section-text {
+    color: #888;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   FEATURE CARDS
+   ========================================================= */
+
+.card-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    text-align: center;
+}
+
+
+.feature-card {
+    background: white;
+
+    min-height: 230px;
+
+    padding: 30px 25px;
+
+    border-radius: 22px;
+
+    border: 1px solid #e8b8ca;
+
+    text-decoration: none;
+
+    color: #444;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 7px 20px rgba(180, 70, 110, 0.07);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s,
+        border-color 0.3s;
+}
+
+
+.feature-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #d63384;
+
+    box-shadow:
+        0 12px 28px rgba(214, 51, 132, 0.15);
+}
+
+
+.card-icon {
+    width: 65px;
+
+    height: 65px;
+
+    border-radius: 50%;
+
+    background: #fff0f5;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+
+.feature-card h3 {
+    color: #b52b68;
+
+    font-size: 19px;
+
+    margin: 5px 0 10px;
+}
+
+
+.feature-card p {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    margin: 0 0 15px;
+
+    max-width: 270px;
+}
+
+
+.card-link {
+    color: #d63384;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   HEALTH DETAILS
+   ========================================================= */
+
+.dashboard {
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 35px auto 50px;
+}
+
+
+.back-button {
+    display: inline-block;
+
+    background: #d63384;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 11px 20px;
+
+    border-radius: 12px;
+
+    font-weight: bold;
+
+    margin-bottom: 25px;
+
+    transition: 0.3s;
+}
+
+
+.back-button:hover {
+    background: #b82b70;
+
+    transform: translateY(-1px);
+}
+
+
+.period-section {
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 35px 40px;
+
+    box-shadow:
+        0 8px 30px rgba(180, 70, 110, 0.10);
+
+    border: 1px solid #f3dce5;
+}
+
+
+.period-section > h2:first-child {
+    color: #c2185b;
+
+    text-align: center;
+
+    font-size: 30px;
+
+    margin-top: 0;
+
+    margin-bottom: 10px;
+}
+
+
+.period-section > p {
+    text-align: center;
+
+    color: #777;
+
+    margin-bottom: 35px;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   HEALTH FORM SECTION HEADINGS
+   ========================================================= */
+
+.period-section form h2 {
+    width: 100%;
+
+    color: #c2185b;
+
+    background: #fff1f6;
+
+    border-left: 5px solid #d63384;
+
+    border-radius: 12px;
+
+    padding: 13px 18px;
+
+    margin: 30px 0 20px;
+
+    font-size: 21px;
+}
+
+
+.period-section form {
+    width: 100%;
+}
+
+
+/* =========================================================
+   HEALTH FORM LABELS
+   ========================================================= */
+
+.period-section form label {
+    display: inline-block;
+
+    color: #555;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin: 8px 8px 8px 0;
+}
+
+
+/* =========================================================
+   HEALTH FORM INPUTS
+   ========================================================= */
+
+.period-section form input,
+.period-section form select {
+    box-sizing: border-box;
+
+    padding: 11px 13px;
+
+    margin: 5px 18px 12px 0;
+
+    border: 1px solid #e6ccd7;
+
+    border-radius: 10px;
+
+    background: #fffafb;
+
+    color: #444;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+.period-section form input {
+    width: 180px;
+}
+
+
+.period-section form select {
+    width: 150px;
+}
+
+
+.period-section form input:focus,
+.period-section form select:focus {
+    border-color: #d63384;
+
+    box-shadow:
+        0 0 0 3px rgba(214, 51, 132, 0.08);
+
+    background: white;
+}
+
+
+.period-section form input[type="date"] {
+    width: 180px;
+}
+
+
+.period-section form input[type="number"] {
+    width: 150px;
+}
+
+
+/* =========================================================
+   ANALYZE BUTTON
+   ========================================================= */
+
+.calculate-btn {
+    display: block;
+
+    margin: 30px auto 5px;
+
+    padding: 14px 30px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: #d63384;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(214, 51, 132, 0.18);
+
+    transition: 0.3s;
+}
+
+
+.calculate-btn:hover {
+    background: #b82b70;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(214, 51, 132, 0.22);
+}
+
+
+/* =========================================================
+   GENERAL CONTENT CARDS
+   Useful for Period / PCOD / PCOS / Nutrition / Exercise
+   ========================================================= */
+
+.content-card {
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid #f0d9e2;
+
+    box-shadow:
+        0 8px 25px rgba(180, 70, 110, 0.08);
+}
+
+
+.content-card h2,
+.content-card h3 {
+    color: #c2185b;
+}
+
+
+/* =========================================================
+   RISK RESULT CARDS
+   ========================================================= */
+
+.risk-card {
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    margin: 25px auto;
+
+    text-align: center;
+
+    border: 1px solid #f0d9e2;
+
+    box-shadow:
+        0 8px 25px rgba(180, 70, 110, 0.08);
+}
+
+
+.risk-card h2 {
+    color: #c2185b;
+
+    margin-bottom: 20px;
+}
+
+
+.risk-result {
+    background: #fff1f6;
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    color: #c2185b;
+
+    font-size: 28px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background: #d63384;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 28px 20px;
+
+    margin-top: 40px;
+}
+
+
+footer h3 {
+    margin: 0 0 8px;
+
+    font-size: 20px;
+}
+
+
+footer p {
+    margin: 5px 0 12px;
+
+    font-size: 14px;
+}
+
+
+footer small {
+    display: block;
+
+    max-width: 650px;
+
+    margin: auto;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   MOBILE - LOGIN
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .auth-page {
+        width: 92%;
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .auth-welcome {
+        padding: 35px;
+    }
+
+
+    .auth-logo {
+        margin-bottom: 25px;
+    }
+
+
+    .auth-welcome h1 {
+        font-size: 30px;
+    }
+
+
+    .health-points {
+        display: none;
+    }
+
+
+    .login-card {
+        padding: 40px 30px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE - DASHBOARD
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        width: 92%;
+
+        padding: 35px;
+    }
+
+
+    .features {
+        width: 92%;
+    }
+
+
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 15px 5%;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    .nav-right {
+        gap: 10px;
+    }
+
+
+    .hero {
+        width: 94%;
+
+        padding: 30px 20px;
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 25px;
+    }
+
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+
+    .hero-icon {
+        width: 90px;
+
+        height: 90px;
+
+        font-size: 40px;
+    }
+
+
+    .features {
+        width: 94%;
+    }
+
+
+    .features h2 {
+        font-size: 25px;
+    }
+
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .feature-card {
+        min-height: 210px;
+    }
+
+
+    .dashboard {
+        width: 94%;
+
+        margin-top: 20px;
+    }
+
+
+    .period-section {
+        padding: 25px 20px;
+    }
+
+
+    .period-section > h2:first-child {
+        font-size: 25px;
+    }
+
+
+    .period-section form h2 {
+        font-size: 19px;
+    }
+
+
+    .period-section form input,
+    .period-section form select {
+        width: 100% !important;
+
+        margin-right: 0;
+    }
+
+
+    .period-section form label {
+        display: block;
+
+        margin-bottom: 2px;
+    }
+
+
+    .calculate-btn {
+        width: 100%;
+    }
+}

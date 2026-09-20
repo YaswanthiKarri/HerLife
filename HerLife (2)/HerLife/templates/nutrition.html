@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HerLife - Nutrition</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff0f6;
+        }
+
+        header {
+            background: #d63384;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 18px;
+            background: #d63384;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #c2185b;
+        }
+
+        .risk-box {
+            background: #ffe0ed;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .risk-box h2 {
+            margin-top: 0;
+        }
+
+        .risk-item {
+            background: white;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .food {
+            background: #ffe0ed;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .food h3 {
+            color: #d63384;
+        }
+
+        .tip {
+            background: #fff3cd;
+            padding: 18px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .high-risk {
+            border-left: 6px solid #d63384;
+        }
+
+        .moderate-risk {
+            border-left: 6px solid #e67e22;
+        }
+
+        .low-risk {
+            border-left: 6px solid #28a745;
+        }
+
+        .meal {
+            background: #fff7fa;
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 15px;
+        }
+
+        .meal h3 {
+            color: #c2185b;
+            margin-top: 0;
+        }
+
+        .meal ul {
+            line-height: 1.8;
+        }
+
+        .avoid {
+            background: #fff3cd;
+            padding: 18px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background: #d63384;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>🌸 HerLife Nutrition</h1>
+
+    <p>
+        Personalized Indian nutrition guidance
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <a href="/" class="back">
+        ← Back to Home
+    </a>
+
+
+    <!-- RISK RESULT -->
+
+    <div class="risk-box">
+
+        <h2>🌸 Your Screening Results</h2>
+
+        <div class="risk-item">
+
+            <strong>PCOD Risk:</strong>
+
+            {{ pcod_risk }}
+
+        </div>
+
+
+        <div class="risk-item">
+
+            <strong>PCOS Risk:</strong>
+
+            {{ pcos_risk }}
+
+        </div>
+
+        <p>
+            Your nutrition suggestions below are based on
+            the screening risk information available in
+            your HerLife session.
+        </p>
+
+    </div>
+
+
+    <!-- INTRODUCTION -->
+
+    <div class="card">
+
+        <h2>🥗 Healthy Nutrition</h2>
+
+        <p>
+            A balanced eating pattern can support overall
+            health, energy and menstrual wellness.
+        </p>
+
+        <p>
+            Indian foods such as dal, vegetables, millets,
+            whole grains, curd, eggs, beans, nuts and fresh
+            fruits can be included in balanced meals.
+        </p>
+
+    </div>
+
+
+    <!-- ============================================ -->
+    <!-- HIGHER RISK DIET -->
+    <!-- ============================================ -->
+
+    {% if pcod_risk|lower == "higher"
+       or pcos_risk|lower == "higher" %}
+
+
+    <div class="card high-risk">
+
+        <h2>🔴 Higher-Risk Nutrition Plan</h2>
+
+        <p>
+            Your screening result shows a higher-risk
+            category for PCOD and/or PCOS. This plan focuses
+            on balanced meals with vegetables, protein,
+            fiber-rich carbohydrates and moderate portions.
+        </p>
+
+
+        <div class="meal">
+
+            <h3>🌅 Early Morning</h3>
+
+            <ul>
+
+                <li>💧 Warm water</li>
+
+                <li>🥜 5–6 soaked almonds or a small handful of nuts</li>
+
+                <li>🍎 Optional: guava, apple or orange</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="meal">
+
+            <h3>🥣 Breakfast</h3>
+
+            <ul>
+
+                <li>🌱 Pesarattu with vegetable chutney</li>
+
+                <li>🥣 Vegetable oats upma</li>
+
+                <li>🌾 Ragi dosa with sambar</li>
+
+                <li>🍲 Idli with vegetable-rich sambar</li>
+
+                <li>🥚 Egg with vegetables, if you eat eggs</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="meal">
+
+            <h3>🍊 Mid-Morning</h3>
+
+            <ul>
+
+                <li>🍎 One whole fruit</li>
+
+                <li>🍊 Orange / guava / apple / papaya</li>
+
+                <li>💧 Water</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="meal">
+
+            <h3>☀️ Lunch</h3>
+
+            <ul>
+
+                <li>🍚 Moderate portion of rice</li>
+
+                <li>🫘 Dal / pappu</li>
+
+                <li>🥬 Two vegetable dishes</li>
+
+                <li>🥣 Sambar or rasam</li>
+
+                <li>🥗 Cucumber/carrot/onion salad</li>
+
+                <li>🥛 Plain curd</li>
+
+                <li>🐟 Fish or chicken can be included if preferred</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="meal">
+
+            <h3>🍵 Evening Snack</h3>
+
+            <ul>
+
+                <li>🫘 Roasted chana</li>
+
+                <li>🌱 Sprouts or sundal</li>
+
+                <li>🥛 Unsweetened buttermilk</li>
+
+                <li>🥜 Small portion of peanuts or nuts</li>
+
+                <li>🍵 Unsweetened tea</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="meal">
+
+            <h3>🌙 Dinner</h3>
+
+            <ul>
+
+                <li>🥣 Vegetable soup with dal</li>
+
+                <li>🫓 Jowar roti with vegetable curry</li>
+
+                <li>🌾 Ragi dosa with sambar</li>
+
+                <li>🍲 Vegetable millet khichdi</li>
+
+                <li>🥬 Dal with plenty of vegetables</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="avoid">
+
+            <strong>⚠️ Try to limit frequent:</strong>
+
+            <ul>
+
+                <li>🥤 Sugary soft drinks</li>
+
+                <li>🧃 Frequent packaged fruit drinks</li>
+
+                <li>🍰 Large amounts of sweets</li>
+
+                <li>🍪 Frequent biscuits and bakery foods</li>
+
+                <li>🍟 Deep-fried snacks</li>
+
+                <li>🍚 Very large portions of refined carbohydrates</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================================ -->
+    <!-- MODERATE RISK -->
+    <!-- ============================================ -->
+
+    {% elif pcod_risk|lower == "moderate"
+          or pcos_risk|lower == "moderate" %}
+
+
+    <div class="card moderate-risk">
+
+        <h2>🟠 Moderate-Risk Nutrition Plan</h2>
+
+        <p>
+            A balanced Indian diet with regular meals,
+            vegetables, protein and fiber-rich foods can
+            support general wellness.
+        </p>
+
+
+        <div class="meal">
+
+            <h3>🌅 Breakfast</h3>
+
+            <ul>
+
+                <li>🌱 Pesarattu</li>
+
+                <li>🍲 Idli with sambar</li>
+
+                <li>🥣 Vegetable upma</li>
+
+                <li>🌾 Ragi dosa</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="meal">
+
+            <h3>☀️ Lunch</h3>
+
+            <ul>
+
+                <li>🍚 Rice in a balanced portion</li>
+
+                <li>🫘 Dal / pappu</li>
+
+                <li>🥬 Vegetable curry</li>
+
+                <li>🥣 Sambar or rasam</li>
+
+                <li>🥛 Plain curd</li>
+
+                <li>🥗 Fresh salad</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="meal">
+
+            <h3>🍎 Snacks</h3>
+
+            <ul>
+
+                <li>🍊 Fresh fruit</li>
+
+                <li>🫘 Roasted chana</li>
+
+                <li>🥛 Buttermilk</li>
+
+                <li>🥜 Small portion of nuts</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="meal">
+
+            <h3>🌙 Dinner</h3>
+
+            <ul>
+
+                <li>🫓 Jowar roti with vegetables</li>
+
+                <li>🌾 Ragi dosa with sambar</li>
+
+                <li>🍲 Vegetable khichdi</li>
+
+                <li>🫘 Dal with vegetables</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================================ -->
+    <!-- LOW RISK -->
+    <!-- ============================================ -->
+
+    {% else %}
+
+
+    <div class="card low-risk">
+
+        <h2>🟢 Low-Risk Healthy Indian Diet</h2>
+
+        <p>
+            Your current screening result is not in the
+            higher-risk category. Continue a varied,
+            balanced eating pattern to support general
+            health and menstrual wellness.
+        </p>
+
+
+        <div class="meal">
+
+            <h3>🌅 Breakfast</h3>
+
+            <ul>
+
+                <li>🍲 Idli with sambar</li>
+
+                <li>🥞 Dosa with vegetable chutney</li>
+
+                <li>🌱 Pesarattu</li>
+
+                <li>🥣 Vegetable upma</li>
+
+                <li>🍚 Poha with vegetables</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="meal">
+
+            <h3>☀️ Lunch</h3>
+
+            <ul>
+
+                <li>🍚 Rice with pappu</li>
+
+                <li>🥬 Seasonal vegetable curry</li>
+
+                <li>🥣 Sambar or rasam</li>
+
+                <li>🥛 Curd</li>
+
+                <li>🥗 Fresh vegetables/salad</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="meal">
+
+            <h3>🍎 Snacks</h3>
+
+            <ul>
+
+                <li>🍊 Seasonal fruits</li>
+
+                <li>🌱 Sundal</li>
+
+                <li>🥜 Roasted peanuts</li>
+
+                <li>🥛 Buttermilk</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="meal">
+
+            <h3>🌙 Dinner</h3>
+
+            <ul>
+
+                <li>🫓 Chapati with vegetable curry</li>
+
+                <li>🥞 Dosa with sambar</li>
+
+                <li>🍲 Vegetable khichdi</li>
+
+                <li>🫘 Dal with vegetables</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    {% endif %}
+
+
+    <!-- GENERAL TIPS -->
+
+    <div class="card">
+
+        <h2>💧 Daily Healthy Habits</h2>
+
+        <div class="food-grid">
+
+            <div class="food">
+
+                <h3>💧 Water</h3>
+
+                <p>
+                    Drink water regularly according to thirst
+                    and activity.
+                </p>
+
+            </div>
+
+
+            <div class="food">
+
+                <h3>🥦 Vegetables</h3>
+
+                <p>
+                    Include a variety of vegetables regularly.
+                </p>
+
+            </div>
+
+
+            <div class="food">
+
+                <h3>🫘 Protein</h3>
+
+                <p>
+                    Include dal, beans, eggs, dairy, fish,
+                    chicken or other suitable protein sources.
+                </p>
+
+            </div>
+
+
+            <div class="food">
+
+                <h3>🌾 Whole Grains</h3>
+
+                <p>
+                    Include foods such as ragi, jowar,
+                    oats and other whole grains.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- IMPORTANT -->
+
+    <div class="card">
+
+        <h2>⚠️ Important</h2>
+
+        <p>
+            This nutrition information is for general
+            wellness and educational purposes. A PCOD/PCOS
+            screening result is not a diagnosis.
+        </p>
+
+        <p>
+            There is no single food or diet that cures
+            PCOD or PCOS. Individual nutrition needs can
+            vary, so personalized advice from a qualified
+            healthcare professional or dietitian may be
+            appropriate.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+<footer>
+
+    © 2026 HerLife | Women's Health & Wellness
+
+</footer>
+
+
+</body>
+
+</html>

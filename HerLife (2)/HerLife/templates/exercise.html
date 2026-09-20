@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HerLife - Exercise</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff0f6;
+            color: #4a2340;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #d63384;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+            font-size: 17px;
+        }
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            width: 92%;
+            max-width: 1150px;
+            margin: 30px auto;
+        }
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back {
+            display: inline-block;
+            margin-bottom: 25px;
+            padding: 11px 20px;
+            background: #d63384;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .back:hover {
+            background: #b82b6f;
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .card {
+            background: white;
+            padding: 28px;
+            margin-bottom: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+        }
+
+        .card h2 {
+            color: #c2185b;
+            margin-top: 0;
+        }
+
+        /* =========================
+           EXERCISE GRID
+        ========================= */
+
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* =========================
+           EXERCISE BUTTON
+        ========================= */
+
+        .exercise-box {
+            background: #ffe0ed;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .exercise-box:hover {
+            border-color: #d63384;
+            box-shadow: 0 5px 18px rgba(214, 51, 132, 0.20);
+        }
+
+        /* Remove default details marker */
+
+        summary {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* =========================
+           EXERCISE HEADER
+        ========================= */
+
+        .exercise-title {
+            padding: 22px;
+            text-align: center;
+        }
+
+        .exercise-title h3 {
+            margin: 0 0 8px;
+            color: #d63384;
+            font-size: 21px;
+        }
+
+        .exercise-title p {
+            margin: 0;
+            color: #5a1745;
+            font-size: 14px;
+        }
+
+        .click-text {
+            margin-top: 12px !important;
+            font-weight: bold;
+            color: #c2185b !important;
+        }
+
+        /* =========================
+           EXERCISE IMAGE
+        ========================= */
+
+        .exercise-info {
+            background: white;
+            padding: 15px;
+            border-top: 2px solid #f4b6d2;
+        }
+
+        .exercise-info img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .exercise-info h4 {
+            color: #c2185b;
+            margin: 8px 0;
+            font-size: 18px;
+        }
+
+        .exercise-info p {
+            line-height: 1.6;
+            margin: 8px 0;
+        }
+
+        .exercise-info ul {
+            padding-left: 22px;
+            line-height: 1.8;
+        }
+
+        .time {
+            display: inline-block;
+            background: #d63384;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        /* =========================
+           WELLNESS
+        ========================= */
+
+        .wellness-list {
+            line-height: 2;
+            padding-left: 25px;
+        }
+
+        /* =========================
+           WEEKLY PLAN
+        ========================= */
+
+        .weekly-plan {
+            background: #ffe0ed;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .weekly-plan ul {
+            line-height: 2;
+        }
+
+        /* =========================
+           SAFETY
+        ========================= */
+
+        .tip {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 12px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #d63384;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 40px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .exercise-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .exercise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exercise-info img {
+                height: 220px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <h1>🌸 HerLife Exercise</h1>
+
+    <p>
+        Simple activities for a healthy lifestyle
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- BACK -->
+
+    <a href="/" class="back">
+        ← Back to Home
+    </a>
+
+
+    <!-- =========================
+         WHY EXERCISE
+    ========================= -->
+
+    <div class="card">
+
+        <h2>🏃 Why Exercise?</h2>
+
+        <p>
+            Regular physical activity can support fitness,
+            energy, mood and overall health.
+        </p>
+
+        <p>
+            Choose activities that are comfortable for
+            your fitness level and increase activity gradually.
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         RECOMMENDED ACTIVITIES
+    ========================= -->
+
+    <div class="card">
+
+        <h2>🏃 Recommended Activities</h2>
+
+        <p>
+            Click an activity to see the exercise image
+            and simple instructions.
+        </p>
+
+
+        <div class="exercise-grid">
+
+
+            <!-- ================= WALKING ================= -->
+
+            <details class="exercise-box">
+
+                <summary>
+
+                    <div class="exercise-title">
+
+                        <h3>🚶 Walking</h3>
+
+                        <p>
+                            Simple walking activities
+                        </p>
+
+                        <p class="click-text">
+                            ▶ Click to see walking exercise
+                        </p>
+
+                    </div>
+
+                </summary>
+
+
+                <div class="exercise-info">
+
+                    <img src="{{ url_for('static', filename='walking.jpeg') }}"
+                         alt="Walking exercise">
+
+                    <h4>🚶 Brisk Walking</h4>
+
+                    <span class="time">
+                        15–30 minutes
+                    </span>
+
+                    <p>
+                        Walk at a comfortable but slightly
+                        faster pace.
+                    </p>
+
+                    <h4>Instructions</h4>
+
+                    <ul>
+                        <li>Keep your back straight.</li>
+                        <li>Move your arms naturally.</li>
+                        <li>Start slowly and increase your pace.</li>
+                        <li>Wear comfortable shoes.</li>
+                        <li>Take breaks when needed.</li>
+                    </ul>
+
+                </div>
+
+            </details>
+
+
+            <!-- ================= YOGA ================= -->
+
+            <details class="exercise-box">
+
+                <summary>
+
+                    <div class="exercise-title">
+
+                        <h3>🧘 Yoga</h3>
+
+                        <p>
+                            Gentle yoga poses
+                        </p>
+
+                        <p class="click-text">
+                            ▶ Click to see yoga exercises
+                        </p>
+
+                    </div>
+
+                </summary>
+
+
+                <div class="exercise-info">
+
+                    <img src="{{ url_for('static', filename='yoga.jpeg') }}"
+                         alt="Yoga exercise">
+
+                    <h4>🧘 Gentle Yoga</h4>
+
+                    <span class="time">
+                        10–20 minutes
+                    </span>
+
+                    <p>
+                        Gentle yoga can support flexibility,
+                        balance and relaxation.
+                    </p>
+
+                    <h4>Simple poses</h4>
+
+                    <ul>
+                        <li>Easy seated pose</li>
+                        <li>Cat-cow stretch</li>
+                        <li>Child's pose</li>
+                        <li>Gentle seated twist</li>
+                        <li>Mountain pose</li>
+                    </ul>
+
+                </div>
+
+            </details>
+
+
+            <!-- ================= STRENGTH ================= -->
+
+            <details class="exercise-box">
+
+                <summary>
+
+                    <div class="exercise-title">
+
+                        <h3>🏋️ Strength Training</h3>
+
+                        <p>
+                            Simple strength exercises
+                        </p>
+
+                        <p class="click-text">
+                            ▶ Click to see strength exercises
+                        </p>
+
+                    </div>
+
+                </summary>
+
+
+                <div class="exercise-info">
+
+                    <img src="{{ url_for('static', filename='strength.jpeg') }}"
+                         alt="Strength training exercise">
+
+                    <h4>🏋️ Bodyweight Strength</h4>
+
+                    <span class="time">
+                        15–25 minutes
+                    </span>
+
+                    <p>
+                        Simple bodyweight exercises can help
+                        build strength.
+                    </p>
+
+                    <h4>Simple exercises</h4>
+
+                    <ul>
+                        <li>Bodyweight squats</li>
+                        <li>Wall push-ups</li>
+                        <li>Glute bridges</li>
+                        <li>Step-ups</li>
+                        <li>Gentle lunges</li>
+                    </ul>
+
+                </div>
+
+            </details>
+
+
+            <!-- ================= CYCLING ================= -->
+
+            <details class="exercise-box">
+
+                <summary>
+
+                    <div class="exercise-title">
+
+                        <h3>🚴 Cycling</h3>
+
+                        <p>
+                            Cycling activities
+                        </p>
+
+                        <p class="click-text">
+                            ▶ Click to see cycling exercises
+                        </p>
+
+                    </div>
+
+                </summary>
+
+
+                <div class="exercise-info">
+
+                    <img src="{{ url_for('static', filename='cycling.jpeg') }}"
+                         alt="Cycling exercise">
+
+                    <h4>🚴 Comfortable Cycling</h4>
+
+                    <span class="time">
+                        20–30 minutes
+                    </span>
+
+                    <p>
+                        Cycling can be a useful cardiovascular
+                        activity.
+                    </p>
+
+                    <h4>Tips</h4>
+
+                    <ul>
+                        <li>Start at an easy pace.</li>
+                        <li>Wear a helmet.</li>
+                        <li>Keep a comfortable posture.</li>
+                        <li>Drink water regularly.</li>
+                        <li>Take breaks when needed.</li>
+                    </ul>
+
+                </div>
+
+            </details>
+
+
+            <!-- ================= DANCING ================= -->
+
+            <details class="exercise-box">
+
+                <summary>
+
+                    <div class="exercise-title">
+
+                        <h3>💃 Dancing</h3>
+
+                        <p>
+                            Fun dance workouts
+                        </p>
+
+                        <p class="click-text">
+                            ▶ Click to see dance exercises
+                        </p>
+
+                    </div>
+
+                </summary>
+
+
+                <div class="exercise-info">
+
+                    <img src="{{ url_for('static', filename='dancing.jpeg') }}"
+                         alt="Dancing exercise">
+
+                    <h4>💃 Dance Workout</h4>
+
+                    <span class="time">
+                        15–30 minutes
+                    </span>
+
+                    <p>
+                        Dancing is an enjoyable way to stay
+                        active and improve fitness.
+                    </p>
+
+                    <h4>Dance ideas</h4>
+
+                    <ul>
+                        <li>Easy freestyle dancing</li>
+                        <li>Bollywood-style dancing</li>
+                        <li>Light Zumba-style movements</li>
+                        <li>Simple step movements</li>
+                        <li>Dance to your favourite music</li>
+                    </ul>
+
+                </div>
+
+            </details>
+
+
+            <!-- ================= STRETCHING ================= -->
+
+            <details class="exercise-box">
+
+                <summary>
+
+                    <div class="exercise-title">
+
+                        <h3>🤸 Stretching</h3>
+
+                        <p>
+                            Gentle flexibility exercises
+                        </p>
+
+                        <p class="click-text">
+                            ▶ Click to see stretching exercises
+                        </p>
+
+                    </div>
+
+                </summary>
+
+
+                <div class="exercise-info">
+
+                    <img src="{{ url_for('static', filename='stretching.jpeg') }}"
+                         alt="Stretching exercise">
+
+                    <h4>🤸 Gentle Stretching</h4>
+
+                    <span class="time">
+                        5–15 minutes
+                    </span>
+
+                    <p>
+                        Gentle stretching can help maintain
+                        flexibility and mobility.
+                    </p>
+
+                    <h4>Simple stretches</h4>
+
+                    <ul>
+                        <li>Hamstring stretch</li>
+                        <li>Shoulder stretch</li>
+                        <li>Neck stretch</li>
+                        <li>Calf stretch</li>
+                        <li>Seated forward stretch</li>
+                    </ul>
+
+                </div>
+
+            </details>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         PCOD / PCOS
+    ========================= -->
+
+    <div class="card">
+
+        <h2>🌸 Exercise & PCOD/PCOS Wellness</h2>
+
+        <p>
+            Regular physical activity may support overall
+            metabolic and cardiovascular health for people
+            with PCOS.
+        </p>
+
+        <ul class="wellness-list">
+
+            <li>🚶 Walking</li>
+
+            <li>🏋️ Strength exercises</li>
+
+            <li>🧘 Yoga</li>
+
+            <li>🚴 Cycling</li>
+
+            <li>💃 Dancing</li>
+
+            <li>🤸 Gentle stretching</li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- =========================
+         WEEKLY PLAN
+    ========================= -->
+
+    <div class="card">
+
+        <h2>📅 Simple Weekly Plan</h2>
+
+        <div class="weekly-plan">
+
+            <ul>
+
+                <li>
+                    <b>Monday:</b> 🚶 Walking
+                </li>
+
+                <li>
+                    <b>Tuesday:</b> 🏋️ Strength exercises
+                </li>
+
+                <li>
+                    <b>Wednesday:</b> 🧘 Yoga / Stretching
+                </li>
+
+                <li>
+                    <b>Thursday:</b> 🚶 Walking
+                </li>
+
+                <li>
+                    <b>Friday:</b> 🏋️ Strength exercises
+                </li>
+
+                <li>
+                    <b>Saturday:</b> 💃 Dancing / Cycling
+                </li>
+
+                <li>
+                    <b>Sunday:</b> 🧘 Rest or gentle stretching
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SAFETY
+    ========================= -->
+
+    <div class="card">
+
+        <h2>⚠️ Exercise Safety</h2>
+
+        <div class="tip">
+
+            <p>
+                Stop exercising if you feel severe pain,
+                dizziness, fainting, chest pain or unusual
+                shortness of breath.
+            </p>
+
+            <p>
+                Choose exercises appropriate for your fitness
+                level and increase activity gradually.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 HerLife | Women's Health & Wellness
+
+</footer>
+
+
+</body>
+
+</html>

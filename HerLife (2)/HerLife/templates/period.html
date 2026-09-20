@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HerLife - Period Tracker</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🩸 HerLife Period Tracker</h1>
+
+    <p>
+        Automatic Period Prediction
+    </p>
+
+</header>
+
+
+<main class="dashboard">
+
+    <a href="/" class="back-button">
+        ← Back to Home
+    </a>
+
+
+    {% if health_data %}
+
+    <div class="period-section">
+
+        <h2>🩸 Your Period Information</h2>
+
+
+        <div class="summary-grid">
+
+
+            <div class="summary-card">
+
+                <span>📅</span>
+
+                <h3>Last Period</h3>
+
+                <p>
+                    {{ health_data.last_period }}
+                </p>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>🔄</span>
+
+                <h3>Cycle Length</h3>
+
+                <p>
+                    {{ health_data.cycle_length_days }}
+                    days
+                </p>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>🩸</span>
+
+                <h3>Period Duration</h3>
+
+                <p>
+                    {{ health_data.period_duration_days }}
+                    days
+                </p>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>📊</span>
+
+                <h3>Regularity</h3>
+
+                <p>
+
+                    {% if health_data.irregular_periods == "1" %}
+                        Irregular
+                    {% else %}
+                        Regular
+                    {% endif %}
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="health-note">
+
+            <h3>🔮 Automatic Prediction</h3>
+
+            <p>
+                Your period prediction uses the
+                last period date and average cycle length
+                entered in Health Analysis.
+            </p>
+
+            <p>
+                The exact prediction calculation can
+                be added to this page next.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    {% else %}
+
+    <div class="period-section">
+
+        <h2>⚠️ No Saved Details</h2>
+
+        <p>
+            Please complete Health Analysis first.
+        </p>
+
+        <a href="/health-details"
+           class="calculate-btn">
+
+            Enter Health Details
+
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 HerLife | Women's Health & Wellness
+    </p>
+
+</footer>
+
+</body>
+
+</html>

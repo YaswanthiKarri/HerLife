@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HerLife - Health Analysis</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff0f6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #d63384;
+        }
+
+        h2 {
+            color: #c2185b;
+        }
+
+        .result-box {
+            padding: 25px;
+            margin-top: 15px;
+            border-radius: 15px;
+            background: #ffe0ed;
+        }
+
+        .result {
+            font-size: 25px;
+            font-weight: bold;
+            color: #d63384;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 8px;
+            border-radius: 10px;
+            background: #d63384;
+            color: white;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background: #b52a6f;
+        }
+
+        .warning {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 10px;
+            color: #856404;
+        }
+
+        .success {
+            color: #198754;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <!-- TITLE -->
+
+    <div class="card">
+
+        <h1>🌸 HerLife Health Analysis</h1>
+
+        <p>
+            Your health details have been analyzed.
+        </p>
+
+        <p class="success">
+            Your personalized results are ready!
+        </p>
+
+    </div>
+
+
+    <!-- PERIOD RESULT -->
+
+    <div class="card">
+
+        <h2>🩸 Period Tracker</h2>
+
+        <div class="result-box">
+
+            <p>
+                Estimated Next Period Date
+            </p>
+
+            <div class="result">
+
+                {{ next_period }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PCOD RESULT -->
+
+    <div class="card">
+
+        <h2>🌸 PCOD Prediction</h2>
+
+        <div class="result-box">
+
+            <p>
+                Your PCOD Risk:
+            </p>
+
+            <div class="result">
+
+                {{ pcod_risk }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PCOS RESULT -->
+
+    <div class="card">
+
+        <h2>🌸 PCOS Prediction</h2>
+
+        <div class="result-box">
+
+            <p>
+                Your PCOS Risk:
+            </p>
+
+            <div class="result">
+
+                {{ pcos_risk }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ERROR -->
+
+    {% if prediction_error %}
+
+    <div class="card">
+
+        <div class="warning">
+
+            ⚠️ Prediction Error:
+
+            {{ prediction_error }}
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+
+    <!-- BUTTONS -->
+
+    <div class="card">
+
+        <h2>Explore HerLife</h2>
+
+        <a href="/period" class="button">
+            🩸 Period Tracker
+        </a>
+
+        <a href="/pcod" class="button">
+            🌸 PCOD
+        </a>
+
+        <a href="/pcos" class="button">
+            🌸 PCOS
+        </a>
+
+        <br>
+
+        <a href="/nutrition" class="button">
+            🥗 Nutrition
+        </a>
+
+        <a href="/exercise" class="button">
+            🏃 Exercise
+        </a>
+
+        <a href="/" class="button">
+            🏠 Home
+        </a>
+
+    </div>
+
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HerLife - Create Account</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff0f6;
+            color: #333;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #d63384;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .login-top {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-top:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .page {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .register-card {
+            width: 100%;
+            max-width: 850px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 8px 30px rgba(214, 51, 132, 0.15);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+        }
+
+        /* =========================
+           LEFT SIDE
+        ========================= */
+
+        .welcome-section {
+            background: #ffe0ed;
+            padding: 45px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .welcome-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .welcome-section h1 {
+            color: #c2185b;
+            font-size: 32px;
+            margin: 0 0 15px;
+        }
+
+        .welcome-section p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .features {
+            margin-top: 20px;
+        }
+
+        .feature {
+            margin: 14px 0;
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-section {
+            padding: 45px 40px;
+        }
+
+        .form-section h2 {
+            color: #c2185b;
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #e5b4ca;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #d63384;
+            box-shadow: 0 0 0 3px rgba(214, 51, 132, 0.1);
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .register-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: #d63384;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .register-btn:hover {
+            background: #c2185b;
+        }
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message {
+            background: #ffe5ee;
+            color: #c2185b;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+
+        /* =========================
+           LOGIN LINK
+        ========================= */
+
+        .login-text {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .login-link {
+            color: #d63384;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .register-card {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-section {
+                padding: 30px;
+            }
+
+            .form-section {
+                padding: 30px;
+            }
+
+            header {
+                padding: 18px 5%;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        🌸 HerLife
+    </div>
+
+    <a href="/login" class="login-top">
+        Login
+    </a>
+
+</header>
+
+
+<div class="page">
+
+
+    <div class="register-card">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="welcome-section">
+
+            <div class="welcome-icon">
+                🌷
+            </div>
+
+            <h1>
+                Welcome to HerLife
+            </h1>
+
+            <p>
+                Start your personal women's health and
+                wellness journey with HerLife.
+            </p>
+
+
+            <div class="features">
+
+                <div class="feature">
+                    🌸 Period Tracking
+                </div>
+
+                <div class="feature">
+                    🩺 PCOD Risk Assessment
+                </div>
+
+                <div class="feature">
+                    💗 PCOS Risk Assessment
+                </div>
+
+                <div class="feature">
+                    🥗 Nutrition Guidance
+                </div>
+
+                <div class="feature">
+                    🏃 Exercise Guidance
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="form-section">
+
+            <h2>
+                Create Account
+            </h2>
+
+            <p class="subtitle">
+                Register to use HerLife
+            </p>
+
+
+            {% if message %}
+
+            <div class="message">
+                {{ message }}
+            </div>
+
+            {% endif %}
+
+
+            <form action="/register" method="POST">
+
+
+                <div class="form-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="confirm_password">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirm_password"
+                        name="confirm_password"
+                        placeholder="Confirm your password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="register-btn"
+                >
+                    Create Account →
+                </button>
+
+
+            </form>
+
+
+            <p class="login-text">
+
+                Already have an account?
+
+                <a
+                    href="/login"
+                    class="login-link"
+                >
+                    Login
+                </a>
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

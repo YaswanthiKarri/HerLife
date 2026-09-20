@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HerLife - Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="auth-body">
+
+    <div class="auth-page">
+
+        <!-- LEFT SIDE -->
+
+        <div class="auth-welcome">
+
+            <div class="auth-logo">
+                🌸 HerLife
+            </div>
+
+            <h1>
+                Welcome Back!
+            </h1>
+
+            <p>
+                Your personal women's health companion
+                is ready for you.
+            </p>
+
+            <div class="health-points">
+
+                <div>
+                    🩸
+                    <span>Period Tracking</span>
+                </div>
+
+                <div>
+                    🌸
+                    <span>PCOD Assessment</span>
+                </div>
+
+                <div>
+                    🌷
+                    <span>PCOS Assessment</span>
+                </div>
+
+                <div>
+                    🥗
+                    <span>Healthy Lifestyle</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOGIN CARD -->
+
+        <div class="login-card">
+
+            <div class="login-icon">
+                💗
+            </div>
+
+            <h2>
+                Login to HerLife
+            </h2>
+
+            <p class="login-subtitle">
+                Continue your health journey
+            </p>
+
+
+            {% if error %}
+
+            <div class="error-message">
+                {{ error }}
+            </div>
+
+            {% endif %}
+
+
+            <form method="POST">
+
+
+                <div class="input-group">
+
+                    <label>
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Enter your username"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="login-button">
+
+                    Login →
+
+                </button>
+                <p class="register-link">
+    Don't have an account?
+    <a href="{{ url_for('register') }}">Create an account</a>
+</p>
+
+            </form>
+
+
+            <div class="register-text">
+
+            
