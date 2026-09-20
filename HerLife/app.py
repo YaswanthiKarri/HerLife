@@ -136,55 +136,29 @@ def login_required(function):
 def create_ml_input(data):
 
     ml_data = {
-
-        "Age": float(data["age"]),
-
-        "BMI": float(data["bmi"]),
-
-        "Cycle length":
-            float(data["cycle_length_days"]),
-
-        "Period duration":
-            float(data["period_duration_days"]),
-
-        "Irregular periods":
-            int(data["irregular_periods"]),
-
-        "Acne":
-            int(data["acne"]),
-
-        "Excess hair growth":
-            int(data["excess_hair_growth"]),
-
-        "Hair thinning":
-            int(data["hair_thinning"]),
-
-        "Weight gain":
-            int(data["weight_gain"]),
-
-        "Dark skin patches":
-            int(data["dark_skin_patches"]),
-
-        "Pelvic pain":
-            int(data["pelvic_pain"]),
-
-        "Fatigue":
-            int(data["fatigue"]),
-
-        "Family history":
-            int(data["family_history_pcos"]),
-
-        "Physical activity":
-            int(data["physical_activity_days_per_week"]),
-
-        "Sleep":
-            float(data["sleep_hours"]),
-
-        "Stress":
-            int(data["stress_level_1_to_5"]),
-
-        "Water intake":
-            float(data["water_glasses_per_day"])
+        "age": float(data["age"]),
+        "bmi": float(data["bmi"]),
+        "cycle_length_days": float(data["cycle_length_days"]),
+        "period_duration_days": float(data["period_duration_days"]),
+        "irregular_periods": int(data["irregular_periods"]),
+        "acne": int(data["acne"]),
+        "excess_hair_growth": int(data["excess_hair_growth"]),
+        "hair_thinning": int(data["hair_thinning"]),
+        "weight_gain": int(data["weight_gain"]),
+        "dark_skin_patches": int(data["dark_skin_patches"]),
+        "pelvic_pain": int(data["pelvic_pain"]),
+        "fatigue": int(data["fatigue"]),
+        "family_history_pcos": int(data["family_history_pcos"]),
+        "physical_activity_days_per_week": int(
+            data["physical_activity_days_per_week"]
+        ),
+        "sleep_hours": float(data["sleep_hours"]),
+        "stress_level_1_to_5": int(
+            data["stress_level_1_to_5"]
+        ),
+        "water_glasses_per_day": float(
+            data["water_glasses_per_day"]
+        )
     }
 
     return pd.DataFrame([ml_data])
