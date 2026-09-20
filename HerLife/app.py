@@ -323,10 +323,6 @@ def register():
             if connection:
                 connection.close()
 
-    return render_template(
-        "register.html",
-        error=error
-    )
 # =========================================================
 # LOGIN
 # =========================================================
