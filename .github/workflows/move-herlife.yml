@@ -1,0 +1,35 @@
+name: Move HerLife Folder
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  move-folder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Move HerLife project
+        run: |
+          if [ -d "HerLife (2)/HerLife" ]; then
+            mv "HerLife (2)/HerLife" "HerLife"
+            rmdir "HerLife (2)"
+          fi
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Move HerLife project to root folder"
+            git push
+          fi
